@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WJQSliderView : UIView
+@interface WJQSliderView : UIControl
+
+@property (nonatomic, assign) CGFloat value;
 
 @end
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF4886BD2383919700A8A774 /* WJQSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4886BC2383919700A8A774 /* WJQSliderView.m */; };
+		DF4886C02383B28400A8A774 /* WJQVideoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4886BF2383B28400A8A774 /* WJQVideoProgressView.m */; };
 		DF5271F023824B440068D5B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5271EF23824B440068D5B8 /* AppDelegate.m */; };
 		DF5271F323824B440068D5B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5271F223824B440068D5B8 /* ViewController.m */; };
 		DF5271F623824B440068D5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5271F423824B440068D5B8 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 		DF5271FE23824B460068D5B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5271FD23824B460068D5B8 /* main.m */; };
 		DF52720823824B460068D5B8 /* WJQVideoPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF52720723824B460068D5B8 /* WJQVideoPlayerDemoTests.m */; };
 		DF52721323824B460068D5B8 /* WJQVideoPlayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF52721223824B460068D5B8 /* WJQVideoPlayerDemoUITests.m */; };
+		DF52722323824CCA0068D5B8 /* WJQVideoPlayerView..m in Sources */ = {isa = PBXBuildFile; fileRef = DF52722223824CCA0068D5B8 /* WJQVideoPlayerView..m */; };
+		EB58B8D1654B72B4088AAC0D /* libPods-WJQVideoPlayerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E91202C99DEC41C8B0D0C64A /* libPods-WJQVideoPlayerDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49F9487EEC08E150391B2B4E /* Pods-WJQVideoPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJQVideoPlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-WJQVideoPlayerDemo/Pods-WJQVideoPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		9558C107411711676356410F /* Pods-WJQVideoPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJQVideoPlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-WJQVideoPlayerDemo/Pods-WJQVideoPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DF4886BB2383919700A8A774 /* WJQSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJQSliderView.h; sourceTree = "<group>"; };
+		DF4886BC2383919700A8A774 /* WJQSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJQSliderView.m; sourceTree = "<group>"; };
+		DF4886BE2383B28400A8A774 /* WJQVideoProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJQVideoProgressView.h; sourceTree = "<group>"; };
+		DF4886BF2383B28400A8A774 /* WJQVideoProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJQVideoProgressView.m; sourceTree = "<group>"; };
 		DF5271EB23824B440068D5B8 /* WJQVideoPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJQVideoPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5271EE23824B440068D5B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF5271EF23824B440068D5B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +61,9 @@
 		DF52720E23824B460068D5B8 /* WJQVideoPlayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WJQVideoPlayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF52721223824B460068D5B8 /* WJQVideoPlayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJQVideoPlayerDemoUITests.m; sourceTree = "<group>"; };
 		DF52721423824B460068D5B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF52722123824CCA0068D5B8 /* WJQVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJQVideoPlayerView.h; sourceTree = "<group>"; };
+		DF52722223824CCA0068D5B8 /* WJQVideoPlayerView..m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJQVideoPlayerView..m; sourceTree = "<group>"; };
+		E91202C99DEC41C8B0D0C64A /* libPods-WJQVideoPlayerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WJQVideoPlayerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB58B8D1654B72B4088AAC0D /* libPods-WJQVideoPlayerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3880D320CE73AD74202B23A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9558C107411711676356410F /* Pods-WJQVideoPlayerDemo.debug.xcconfig */,
+				49F9487EEC08E150391B2B4E /* Pods-WJQVideoPlayerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DF5271E223824B440068D5B8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +108,8 @@
 				DF52720623824B460068D5B8 /* WJQVideoPlayerDemoTests */,
 				DF52721123824B460068D5B8 /* WJQVideoPlayerDemoUITests */,
 				DF5271EC23824B440068D5B8 /* Products */,
+				D3880D320CE73AD74202B23A /* Pods */,
+				E764911678F3270CE627ADF1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +126,7 @@
 		DF5271ED23824B440068D5B8 /* WJQVideoPlayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DF52722023824CB10068D5B8 /* Player */,
 				DF5271EE23824B440068D5B8 /* AppDelegate.h */,
 				DF5271EF23824B440068D5B8 /* AppDelegate.m */,
 				DF5271F123824B440068D5B8 /* ViewController.h */,
@@ -132,6 +158,27 @@
 			path = WJQVideoPlayerDemoUITests;
 			sourceTree = "<group>";
 		};
+		DF52722023824CB10068D5B8 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				DF52722123824CCA0068D5B8 /* WJQVideoPlayerView.h */,
+				DF52722223824CCA0068D5B8 /* WJQVideoPlayerView..m */,
+				DF4886BB2383919700A8A774 /* WJQSliderView.h */,
+				DF4886BC2383919700A8A774 /* WJQSliderView.m */,
+				DF4886BE2383B28400A8A774 /* WJQVideoProgressView.h */,
+				DF4886BF2383B28400A8A774 /* WJQVideoProgressView.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		E764911678F3270CE627ADF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E91202C99DEC41C8B0D0C64A /* libPods-WJQVideoPlayerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +186,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF52721723824B460068D5B8 /* Build configuration list for PBXNativeTarget "WJQVideoPlayerDemo" */;
 			buildPhases = (
+				3F734AADB14B6EF27FBC2839 /* [CP] Check Pods Manifest.lock */,
 				DF5271E723824B440068D5B8 /* Sources */,
 				DF5271E823824B440068D5B8 /* Frameworks */,
 				DF5271E923824B440068D5B8 /* Resources */,
@@ -257,14 +305,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F734AADB14B6EF27FBC2839 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WJQVideoPlayerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DF5271E723824B440068D5B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF4886C02383B28400A8A774 /* WJQVideoProgressView.m in Sources */,
+				DF4886BD2383919700A8A774 /* WJQSliderView.m in Sources */,
 				DF5271F323824B440068D5B8 /* ViewController.m in Sources */,
 				DF5271FE23824B460068D5B8 /* main.m in Sources */,
 				DF5271F023824B440068D5B8 /* AppDelegate.m in Sources */,
+				DF52722323824CCA0068D5B8 /* WJQVideoPlayerView..m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,33 +509,39 @@
 		};
 		DF52721823824B460068D5B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9558C107411711676356410F /* Pods-WJQVideoPlayerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WJQVideoPlayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nnnnn.WJQVideoPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		DF52721923824B460068D5B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49F9487EEC08E150391B2B4E /* Pods-WJQVideoPlayerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WJQVideoPlayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nnnnn.WJQVideoPlayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

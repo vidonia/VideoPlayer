@@ -1,5 +1,5 @@
 //
-//  YTScanPicVideoView.h
+//  WJQVideoPlayerView.h
 //  YuanTu
 //
 //  Created by vidonia on 2019/11/12.
@@ -10,19 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol YTScanPicVideoViewDelegate <NSObject>
+@protocol WJQVideoPlayerViewDelegate <NSObject>
 
 - (void)scanPicViewClose;
 
 @end
 
-@interface YTScanPicVideoView : UIView
+@interface WJQVideoPlayerView : UIView
 
-@property (nonatomic, weak) id<YTScanPicVideoViewDelegate> delegate;
+@property (nonatomic, weak) id<WJQVideoPlayerViewDelegate> delegate;
 
-- (instancetype)initWithUrl:(NSString *)url;
+- (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url;
 
 - (void)destroyPlayer;
+
+- (void)pause;
+
+- (void)play;
 
 @end
 
