@@ -10,17 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol WJQVideoPlayerViewDelegate <NSObject>
-
-- (void)scanPicViewClose;
-
-@end
-
 @interface WJQVideoPlayerView : UIView
 
-@property (nonatomic, weak) id<WJQVideoPlayerViewDelegate> delegate;
-
-- (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url;
+- (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url superView:(UIView *)superView;
 
 - (void)destroyPlayer;
 

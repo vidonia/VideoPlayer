@@ -23,7 +23,7 @@
     
     NSString *url = @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4";
     
-    self.playView = [[WJQVideoPlayerView alloc] initWithFrame:(CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 200)) url:url];
+    self.playView = [[WJQVideoPlayerView alloc] initWithFrame:(CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 200)) url:url superView:self.view];
     [self.view addSubview:self.playView];
     
 }

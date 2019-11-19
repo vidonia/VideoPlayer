@@ -28,19 +28,27 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
 
-@property (nonatomic, assign) WJQVideoPlayerState playState;
-
 @property (nonatomic, strong) WJQVideoProgressView *progressView;
 
+@property (nonatomic, assign) WJQVideoPlayerState playState;
+
+@property (nonatomic, assign) UIInterfaceOrientation currentOrientation; //当前的方向；
 @property (nonatomic, strong) id timeObserve; //定时观察者
+
+@property (nonatomic, assign) CGRect initFrame; // 初始frame
+@property (nonatomic, strong) UIView *initSuperView; // 父控件
+@property (nonatomic, assign) BOOL isFullScreen;
 
 @end
 
 @implementation WJQVideoPlayerView
 
-- (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url {
+- (instancetype)initWithFrame:(CGRect)frame url:(NSString *)url superView:(UIView *)superView {
     
     if (self = [super initWithFrame:frame]) {
+        
+        self.initFrame = frame;
+        self.initSuperView = superView;
         
         self.backgroundColor = [UIColor blackColor];
         
@@ -121,6 +129,9 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
     [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
     [self.playerItem removeObserver:self forKeyPath:@"status"];
 //    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+    if (self.timeObserve) {
+        self.timeObserve = nil;
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -169,7 +180,28 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
 #pragma mark - Notification
 
 - (void)addNotifications {
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    
+    //开启
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    
+    //注册屏幕旋转通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:[UIDevice currentDevice]];
+    //APP运行状态通知，将要被挂起
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidEnterBackground:)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+    // app进入前台
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidEnterPlayground:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
 }
 
 - (void)removeNotifications {
@@ -184,9 +216,53 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
     [self.player play];
 }
 
+- (void)appDidEnterBackground:(NSNotification *)notification {
+    // 将要挂起，停止播放
+    [self pause];
+    
+}
+- (void)appDidEnterPlayground:(NSNotification *)notification {
+    // 继续播放
+    [self play];
+}
+
+- (void)orientChange:(NSNotification *)notification {
+    
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    
+    if (self.isFullScreen) {
+        
+        if (orientation == UIDeviceOrientationPortrait) {
+            
+            [self setOrientationPortraitConstraint:UIInterfaceOrientationPortrait];
+        }
+        
+    } else {
+        
+        if (orientation == UIDeviceOrientationLandscapeLeft) {
+            
+            [self setOrientationLandscapeConstraint:UIInterfaceOrientationLandscapeRight];
+            
+            
+        } else if (orientation == UIDeviceOrientationLandscapeRight) {
+            
+            [self setOrientationLandscapeConstraint:UIInterfaceOrientationLandscapeLeft];
+            
+            
+        }
+    }
+
+}
+
 #pragma mark - SettingLandscape
 
 - (void)setOrientationLandscapeConstraint:(UIInterfaceOrientation)orientation {
+    
+    if (self.currentOrientation == orientation) {
+        return;
+    }
+    
+    self.isFullScreen = YES;
     
     [self removeFromSuperview];
     
@@ -207,7 +283,7 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
         
     }
     
-    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo([UIScreen mainScreen].bounds.size.height);
         make.height.mas_equalTo([UIScreen mainScreen].bounds.size.width);
         make.center.equalTo([UIApplication sharedApplication].keyWindow);
@@ -217,6 +293,43 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
     [self layoutIfNeeded];
     
     self.playerLayer.frame = self.bounds;
+    
+    self.currentOrientation = orientation;
+}
+
+- (void)setOrientationPortraitConstraint:(UIInterfaceOrientation)orientation {
+    
+    if (orientation == self.currentOrientation) {
+        return;
+    }
+    
+    self.isFullScreen = NO;
+    
+    // 还原
+    [UIView animateWithDuration:0.25 animations:^{
+        self.transform = CGAffineTransformMakeRotation(0);
+    }];
+    
+    
+    if (self.initSuperView) {
+        [self removeFromSuperview];
+        [self.initSuperView addSubview:self];
+
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(self.initFrame.size.width);
+            make.height.mas_equalTo(self.initFrame.size.height);
+            make.left.mas_equalTo(self.initFrame.origin.x);
+            make.top.mas_equalTo(self.initFrame.origin.y);
+        }];
+    }
+    
+    
+    self.currentOrientation = orientation;
+    [self setNeedsLayout];
+//    [self layoutIfNeeded];
+    
+    self.playerLayer.frame = self.bounds;
+    
 }
 
 #pragma mark - Action
@@ -239,7 +352,7 @@ typedef NS_ENUM(NSInteger, WJQVideoPlayerState) {
     if (full) {
         [self setOrientationLandscapeConstraint:(UIInterfaceOrientationLandscapeRight)];
     } else {
-        
+        [self setOrientationPortraitConstraint:(UIInterfaceOrientationPortrait)];
     }
 }
 
